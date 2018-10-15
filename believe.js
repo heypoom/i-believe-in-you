@@ -6,7 +6,8 @@ const quotes = [
   'You can do it!',
   "You're almost there!",
   'Believe in yourself.',
-  'Breathe in.'
+  'Breathe in.',
+  "Don't give up!",
 ]
 
 // If we need to lazy-load some scripts, we can do this instead

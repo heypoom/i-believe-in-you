@@ -23,7 +23,7 @@
   },
 
   "content_scripts": [{
-    "matches": ["http://localhost:*/*"],
+    "matches": ["http://localhost:*/*", "http://local.omnivirt.com/*"],
     "run_at": "document_start",
     "css": ["believe.css"],
     "js": ["particles.js", "particles.config.js", "believe.js"]
