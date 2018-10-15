@@ -32,7 +32,7 @@ function template({error, count}) {
 
       <div class="error-counter">
         <img src='${imagePath}' />
-        <span>x️ ${count}</span>
+        <span>️x ${count}</span>
       </div>
 
       <div class="close-button">
@@ -82,8 +82,6 @@ const db = {
 
 async function onError(event) {
   db.load()
-  db.errors += 1
-  db.save()
 
   const html = template({
     error: event,
@@ -115,6 +113,10 @@ async function onError(event) {
     document.body.removeChild(rootNode)
   })
 
+  // Update the error counter
+  db.errors += 1
+  db.save()
+
   // Quote Heading
   const heading = scene.querySelector('h1')
   const quote = random(quotes)
@@ -134,6 +136,13 @@ async function onError(event) {
   // Error Subheading
   const subheading = scene.querySelector('.error')
   subheading.style.opacity = '1'
+
+  await delay(200)
+
+  // Increment the error counter
+  // TODO: add gemstone animation
+  const errorCounter = scene.querySelector('.error-counter span')
+  errorCounter.textContent = `x ${db.errors}`
 
   return true
 }

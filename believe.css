@@ -87,8 +87,8 @@
 
 .error-scene .close-button {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: 2em;
+  top: 2em;
 
   width: 2.4em;
   height: 2.4em;
@@ -102,8 +102,8 @@
 
 .error-scene .error-counter {
   position: absolute;
-  left: 1em;
-  top: 1em;
+  left: 2em;
+  top: 2em;
 
   display: flex;
   align-items: center;
