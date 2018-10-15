@@ -1,4 +1,4 @@
-{
+const particlesConfig = {
   "particles": {
     "number": {
       "value": 80,

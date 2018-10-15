@@ -26,7 +26,7 @@
     "matches": ["http://localhost:*/*"],
     "run_at": "document_start",
     "css": ["believe.css"],
-    "js": ["believe.js"]
+    "js": ["particles.js", "particles.config.js", "believe.js"]
   }],
 
   "web_accessible_resources": [

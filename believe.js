@@ -9,12 +9,12 @@ const quotes = [
   'Breathe in.'
 ]
 
-async function getScript(src) {
-  const res = await fetch(src)
-  const text = await res.text()
-
-  return eval(text)
-}
+// If we need to lazy-load some scripts, we can do this instead
+// async function getScript(src) {
+//   const res = await fetch(src)
+//   const text = await res.text()
+//   return eval(text)
+// }
 
 function template({error}) {
   const stackOverflow = encodeURI(`https://stackoverflow.com/search?q=[js] ${error.message}`)
@@ -73,8 +73,6 @@ const db = {
 }
 
 async function onError(event) {
-  await getScript('https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js')
-
   db.load()
   db.errors += 1
   db.save()
@@ -92,7 +90,7 @@ async function onError(event) {
   scene.style.opacity = 1
 
   // Particle Effects
-  particlesJS.load('particles', 'particles.json')
+  particlesJS('particles', particlesConfig)
 
   // Close Button
   const closeButton = scene.querySelector('.close-button')
