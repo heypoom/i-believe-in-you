@@ -18,7 +18,7 @@
   font-weight: 400;
 
   /* Nunito:400 */
-  font-family: "Dosis", "Helvetica Neue", sans-serif;
+  font-family: 'Dosis', 'Helvetica Neue', sans-serif;
 
   /* background: linear-gradient(45deg, #93278f, #00a99d); */
   background: linear-gradient(45deg, #3a3897, #a3a1ff);
@@ -26,6 +26,7 @@
   transition: all 0.3s ease-in-out;
 
   /* animation: hue 10s infinite linear; */
+  z-index: 10001;
 }
 
 .error-scene #particles {
@@ -61,7 +62,8 @@
   transition: opacity 0.4s ease-in-out;
 }
 
-.error-scene h1, .error-scene h2 {
+.error-scene h1,
+.error-scene h2 {
   color: #fefefe;
   font-weight: inherit;
   font-family: inherit;
@@ -83,7 +85,7 @@
   text-decoration: none;
 }
 
-.error-scene close-button {
+.error-scene .close-button {
   position: absolute;
   right: 1em;
   top: 1em;
@@ -95,5 +97,31 @@
   opacity: 0.7;
   cursor: pointer;
 
-  z-index: 1;
+  z-index: 3;
+}
+
+.error-scene .error-counter {
+  position: absolute;
+  left: 1em;
+  top: 1em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+}
+
+.error-scene .error-counter img {
+  width: 40px;
+  height: 40px;
+
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.28));
+}
+
+.error-scene .error-counter span {
+  font-size: 2.1em;
+  margin-left: 0.3em;
+
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }

@@ -31,6 +31,7 @@
 
   "web_accessible_resources": [
     "particles.js",
-    "particles.json"
+    "particles.json",
+    "images/*"
   ]
 }

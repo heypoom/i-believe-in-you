@@ -17,16 +17,23 @@ const quotes = [
 //   return eval(text)
 // }
 
-function template({error}) {
+const extPath = `chrome-extension://${chrome.runtime.id}`
+const imagePath = extPath + '/images/yellow-gem.svg'
+
+function template({error, count}) {
   const stackOverflow = encodeURI(`https://stackoverflow.com/search?q=[js] ${error.message}`)
 
   return `
     <div class="scene error-scene" style="opacity: 0">
-      <link rel='stylesheet' href='./believe.css' />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400">
       <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
       <div id="particles"></div>
+
+      <div class="error-counter">
+        <img src='${imagePath}' />
+        <span>x️ ${count}</span>
+      </div>
 
       <div class="close-button">
         <svg viewBox="0 0 24 24">
@@ -78,8 +85,10 @@ async function onError(event) {
   db.errors += 1
   db.save()
 
-  const quote = random(quotes)
-  const html = template({error: event})
+  const html = template({
+    error: event,
+    count: db.errors
+  })
 
   const rootNode = document.createElement('div')
   rootNode.innerHTML = html
@@ -108,6 +117,7 @@ async function onError(event) {
 
   // Quote Heading
   const heading = scene.querySelector('h1')
+  const quote = random(quotes)
   
   for (const char of quote.split('')) {
     await delay(60)
@@ -128,8 +138,8 @@ async function onError(event) {
   return true
 }
 
-window.addEventListener('load', () => {
-  console.log('[+] Error Handling Active')
+// window.addEventListener('load', () => {
+console.log('[+] Error Handling Active')
 
-  window.addEventListener("error", onError)
-})
+window.addEventListener("error", onError)
+// })

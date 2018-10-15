@@ -7,7 +7,17 @@
   <title>Hello</title>
 </head>
 <body>
-  <h1 style="font-family: sans-serif">Sample Page</h1>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <h1 style="font-family: sans-serif">Test Page: this will throw an error!</h1>
+
+    <code>
+      <pre style="font-size: 2.1em">
+        setTimeout(() => {
+          undefined()
+        }, 1000)
+      </pre>
+    </code>
+  </div>
 
   <script>
     setTimeout(() => {
